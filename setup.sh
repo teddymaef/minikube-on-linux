@@ -16,7 +16,7 @@ MINIKUBE_HOME=/opt/minikube
 
 # version of kubernetes
 # if not set, this value will be the latest stable version
-KUBE_VERSION=v1.13.4
+KUBE_VERSION=v1.15.2
 
 # version of minikube
 # default value is latest, you can specify a version, like v0.35.0, v0.34.0
