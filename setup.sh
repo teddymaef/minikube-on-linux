@@ -12,7 +12,7 @@ set -e
 
 # define the home directory of minikube
 # if not set, this value will be the current directory 
-MINIKUBE_HOME=/home/k8s/minikube
+MINIKUBE_HOME=/opt/minikube
 
 # version of kubernetes
 # if not set, this value will be the latest stable version
