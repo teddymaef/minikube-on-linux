@@ -356,7 +356,7 @@ function start() {
     local cgroup_driver=$(docker info 2>/dev/null | grep 'Cgroup Driver' | awk -F ':' '{ print $2 }' | tr -d '[:blank:]')
     [[ ! -z "${cgroup_driver}" ]] || cgroup_driver=systemd
     # kubelet will use cgroupfs as defualt cgroup driver
-    minikube start --vm-driver none --kubernetes-version "${KUBE_VERSION}" --extra-config kubelet.cgroup-driver="${cgroup_driver}"
+    minikube start --driver docker --kubernetes-version "${KUBE_VERSION}" --extra-config kubelet.cgroup-driver="${cgroup_driver}"
 }
 
 function package() {
