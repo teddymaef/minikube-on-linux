@@ -12,7 +12,7 @@ set -e
 
 # define the home directory of minikube
 # if not set, this value will be the current directory 
-MINIKUBE_HOME=/opt/minikube
+MINIKUBE_HOME=/home/k8s/minikube
 
 # version of kubernetes
 # if not set, this value will be the latest stable version
@@ -20,7 +20,7 @@ KUBE_VERSION=v1.13.4
 
 # version of minikube
 # default value is latest, you can specify a version, like v0.35.0, v0.34.0
-MINIKUBE_VERSION=latest
+MINIKUBE_VERSION=v1.3.0
 
 # save docker images to local filesystem or not
 CACHE_IMAGES=true
@@ -356,7 +356,7 @@ function start() {
     local cgroup_driver=$(docker info 2>/dev/null | grep 'Cgroup Driver' | awk -F ':' '{ print $2 }' | tr -d '[:blank:]')
     [[ ! -z "${cgroup_driver}" ]] || cgroup_driver=systemd
     # kubelet will use cgroupfs as defualt cgroup driver
-    minikube start --driver docker --kubernetes-version "${KUBE_VERSION}" --extra-config kubelet.cgroup-driver="${cgroup_driver}"
+    minikube start --vm-driver none --kubernetes-version "${KUBE_VERSION}" --extra-config kubelet.cgroup-driver="${cgroup_driver}"
 }
 
 function package() {
